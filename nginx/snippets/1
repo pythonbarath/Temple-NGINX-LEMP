@@ -1,0 +1,8 @@
+# fastcgi-php.conf
+location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/run/php-fpm/www.sock;  # Adjust path and version as needed
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
+
